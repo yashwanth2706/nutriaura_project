@@ -172,10 +172,17 @@
     <nav class="navbar navbar-expand-lg navbar-light sticky-top">
         <div class="container-fluid px-lg-4">
             <!-- Brand -->
-            <a class="navbar-brand d-flex align-items-center gap-2" href="#home">
-                <i class="fas fa-leaf"></i>
-                NutriAura
-            </a>
+        <a class="navbar-brand d-flex align-items-center gap-2">
+            <i class="fas fa-leaf"></i>
+            NutriAura
+            <cite class="text-secondary fs-6 lead ms-2"
+                role="button"
+                data-bs-toggle="modal"
+                data-bs-target="#twinHealthConfirm"
+                title="Go to Twin Health">
+                — Powered by Twin Health
+        </cite>
+        </a>
 
             <!-- Toggler for mobile -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -243,6 +250,36 @@
         </div>
     </nav>
 
+    <!-- Confirmation start before leaving Nutriaura -->
+    <div class="modal fade" id="twinHealthConfirm" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Leave NutriAura?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+                You’ll be redirected to the <strong>Twin Health</strong> website.
+                <br>
+                Are you sure you want to continue?
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                Cancel
+                </button>
+                <a href="https://ind.twinhealth.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-success">
+                Yes, Continue
+                </a>
+            </div>
+            </div>
+        </div>
+    </div>
+    <!-- Confirmation end before leaving Nutriaura -->
 
     <!-- Carousel -->
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
