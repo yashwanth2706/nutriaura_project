@@ -1,0 +1,69 @@
+        /* Navbar */
+        .navbar {
+            background-color: #ffffff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .navbar-brand {
+            font-weight: 600;
+            color: var(--primary-green) !important;
+            font-size: 1.5rem;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--dark-text) !important;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-green);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* Search Input */
+        .form-control-navbar {
+            background-color: var(--light-beige);
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: 250px;
+            transition: all 0.3s ease;
+        }
+
+        .form-control-navbar:focus {
+            border-color: var(--primary-green);
+            box-shadow: 0 0 5px rgba(90, 125, 90, 0.3);
+            background-color: #ffffff;
+        }
+
+        /* Icon Links */
+        .icon-link-nav {
+            color: var(--dark-text);
+            font-size: 1.25rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .icon-link-nav:hover {
+            color: var(--primary-green);
+            text-decoration: none;
+        }
+
+        .badge-cart {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--secondary-orange);
+            font-size: 0.6rem;
+        }

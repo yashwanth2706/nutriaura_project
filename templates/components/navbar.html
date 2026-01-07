@@ -1,0 +1,81 @@
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container-fluid px-lg-4">
+            <!-- Brand -->
+        <a class="navbar-brand d-flex align-items-center gap-2">
+            <i class="fas fa-leaf"></i>
+            NutriAura
+            <cite class="text-secondary fs-6 lead ms-2"
+                role="button"
+                data-bs-toggle="modal"
+                data-bs-target="#twinHealthConfirm"
+                title="Go to Twin Health">
+                — Powered by Twin Health
+        </cite>
+        </a>
+
+            <!-- Toggler for mobile -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar content -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- Center navigation links -->
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#store">Store</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="whyChooseDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Why Choose Us
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="whyChooseDropdown">
+                            <li><a class="dropdown-item" href="#quality">Quality Products</a></li>
+                            <li><a class="dropdown-item" href="#science">Science-Backed</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#testimonials">Customer Reviews</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+
+                <!-- Right side: Search and Icons -->
+                <div class="d-flex flex-column flex-lg-row align-items-center gap-3">
+                    <!-- Search -->
+                    <div class="input-group input-group-sm flex-nowrap">
+                        <span class="input-group-text bg-transparent border-0">
+                            <i class="bi bi-search text-muted"></i>
+                        </span>
+                        <input type="text" class="form-control form-control-navbar border-0" placeholder="Search...">
+                    </div>
+
+                    <!-- Icons -->
+                    <!-- Person Logo SVG -->
+                    <div class="d-flex align-items-center gap-3">
+                        <a href="#cart" class="icon-link-nav position-relative" title="Account">
+                            <i class="bi bi-person"></i>
+                        </a>
+                        <a href="#user-account" class="icon-link-nav" title="Account">
+                            <i class="fas fa-user-circle"></i>
+                        </a>
+                    </div>
+                    <!-- Cart with item numbers -->
+                    <div class="d-flex align-items-center gap-3">
+                        <a href="#cart" class="icon-link-nav position-relative" title="Shopping Cart">
+                            <i class="bi bi-cart4"></i>
+                            <span class="badge badge-cart rounded-pill">2</span>
+                        </a>
+                        <a href="#user-account" class="icon-link-nav" title="Account">
+                            <i class="fas fa-user-circle"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>

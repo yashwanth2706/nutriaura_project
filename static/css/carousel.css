@@ -1,0 +1,51 @@
+/* Carousel Styling */
+.carousel {
+    max-height: 250px;
+    overflow: hidden;
+}
+
+.carousel-inner {
+    max-height: 250px;
+}
+
+.carousel-item {
+    max-height: 250px;
+}
+
+.carousel-item img {
+    height: 250px;
+    object-fit: cover;
+    width: 100%;
+}
+
+/* Responsive carousel height */
+@media (max-width: 768px) {
+    .carousel,
+    .carousel-inner,
+    .carousel-item {
+    max-height: 300px;
+}
+
+.carousel-item img {
+    height: 300px;
+    }
+}
+
+@media (max-width: 576px) {
+    .carousel,
+    .carousel-inner,
+    .carousel-item {
+    max-height: 250px;
+    }
+
+    .carousel-item img {
+    height: 250px;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+    .form-control-navbar {
+    width: 100%;
+    }
+}
