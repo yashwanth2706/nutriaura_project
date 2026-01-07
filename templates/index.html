@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -111,6 +112,51 @@
             font-size: 0.6rem;
         }
 
+        /* Carousel Styling */
+        .carousel {
+            max-height: 250px;
+            overflow: hidden;
+        }
+
+        .carousel-inner {
+            max-height: 250px;
+        }
+
+        .carousel-item {
+            max-height: 250px;
+        }
+
+        .carousel-item img {
+            height: 250px;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        /* Responsive carousel height */
+        @media (max-width: 768px) {
+            .carousel,
+            .carousel-inner,
+            .carousel-item {
+                max-height: 300px;
+            }
+
+            .carousel-item img {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .carousel,
+            .carousel-inner,
+            .carousel-item {
+                max-height: 250px;
+            }
+
+            .carousel-item img {
+                height: 250px;
+            }
+        }
+
         /* Responsive adjustments */
         @media (max-width: 991px) {
             .form-control-navbar {
@@ -173,6 +219,16 @@
                     </div>
 
                     <!-- Icons -->
+                    <!-- Person Logo SVG -->
+                    <div class="d-flex align-items-center gap-3">
+                        <a href="#cart" class="icon-link-nav position-relative" title="Account">
+                            <i class="bi bi-person"></i>
+                        </a>
+                        <a href="#user-account" class="icon-link-nav" title="Account">
+                            <i class="fas fa-user-circle"></i>
+                        </a>
+                    </div>
+                    <!-- Cart with item numbers -->
                     <div class="d-flex align-items-center gap-3">
                         <a href="#cart" class="icon-link-nav position-relative" title="Shopping Cart">
                             <i class="bi bi-cart4"></i>
@@ -187,10 +243,34 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
-    <main class="container-fluid py-5">
-        <h1 class="text-center mt-5">Welcome to NutriAura</h1>
-        <p class="text-center text-muted">Food that fits your body, not the other way around</p>
-    </main>
+
+    <!-- Carousel -->
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{% static 'images/garlic_mixture.png' %}" class="d-block w-100" alt="Garlic Mixture Slide 1">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'images/garlic_mixture.png' %}" class="d-block w-100" alt="Garlic Mixture Slide 2">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'images/garlic_mixture.png' %}" class="d-block w-100" alt="Garlic Mixture Slide 3">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
 </body>
 </html>
