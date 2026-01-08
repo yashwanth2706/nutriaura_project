@@ -30,11 +30,19 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/root_body_preset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/topbar.css' %}">
     <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
     <link rel="stylesheet" href="{% static 'css/carousel.css' %}">
+
+    <!-- Custom JS -->
+    <script src="{% static 'js/closeTopBarSmoothBehaviour.js' %}"></script>
+
     <title>Nutriaura</title>
 </head>
 <body>
+
+    <!-- Top Bar -->
+    {% include "components/topbar.html" %}
 
     <!-- Navbar -->
     {% include "components/navbar.html" %}

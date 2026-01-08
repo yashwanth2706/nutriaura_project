@@ -1,0 +1,128 @@
+    /* Top Announcement Bar */
+    .top-bar {
+      background: linear-gradient(135deg, var(--primary-green), var(--light-green));
+      color: white;
+      font-size: 0.875rem;
+      padding: 0.5rem 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1031;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      height: 65px;
+    }
+
+    .marquee-container {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      padding: 0.25rem 0;
+    }
+
+    .marquee-content {
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+      animation: marquee 40s linear infinite;
+      width: max-content;
+    }
+
+    .marquee-content:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes marquee {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .top-bar-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      white-space: nowrap;
+    }
+
+    .top-bar-item i {
+      font-size: 1rem;
+    }
+
+    .top-bar-link {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    .top-bar-link:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      color: white;
+    }
+
+    .top-bar-highlight {
+      background-color: var(--accent-gold);
+      color: var(--primary-green);
+      padding: 0.25rem 0.75rem;
+      border-radius: 12px;
+      font-weight: 600;
+      animation: shimmer 3s infinite;
+    }
+
+    @keyframes shimmer {
+      0%, 100% {
+        box-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+      }
+      50% {
+        box-shadow: 0 0 15px rgba(212, 175, 55, 0.8);
+      }
+    }
+
+    .top-bar-separator {
+      width: 1px;
+      height: 16px;
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    .top-bar-badge {
+      background-color: rgba(255, 255, 255, 0.25);
+      padding: 0.15rem 0.5rem;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .top-bar-close {
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      color: white;
+      opacity: 0.9;
+      cursor: pointer;
+      padding: 0.35rem 0.6rem;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      z-index: 10;
+    }
+
+    .top-bar-close:hover {
+      opacity: 1;
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    .top-bar.hidden {
+      display: none; 
+    }
+    
