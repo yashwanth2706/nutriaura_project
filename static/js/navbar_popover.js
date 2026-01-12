@@ -11,18 +11,34 @@ document.addEventListener("DOMContentLoaded", function () {
     '.powered-by'
   );
 
-  popoverTargets.forEach((el) => {
-    // Remove default browser tooltip if any
+  // Define navbar items with their IDs and corresponding content keys
+  const popoverTargets = [
+    { id: "nav-products", key: "products" },
+    { id: "nav-categories", key: "categories" },
+    { id: "nav-aboutus", key: "aboutus" },
+    { id: "nav-account", key: "account" },
+    { id: "nav-cart", key: "cart" },
+    { id: "nav-poweredby", key: "poweredby" },
+  ];
+
+  // Process each popover target
+  popoverTargets.forEach((item) => {
+    // Get the DOM element by ID
+    const el = document.getElementById(item.id);
+    if (!el) return;
+
+    // Remove default tooltip attribute if present
     el.removeAttribute("title");
 
+    // Initialize Bootstrap popover with hover trigger and dynamic content
     const popover = new bootstrap.Popover(el, {
       trigger: "hover",
       placement: "bottom",
       html: true,
-      content: getPopoverContent(el),
+      content: getPopoverContent(item.key),
     });
 
-    // Dismiss on click anywhere else
+    // Hide popover when clicking outside the element
     document.addEventListener("click", function (e) {
       if (!el.contains(e.target)) {
         popover.hide();
@@ -30,49 +46,62 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  function getPopoverContent(el) {
-    const href = el.getAttribute("href");
-
-    if (el.classList.contains("powered-by")) {
-      return `
-        <div>
-          Precision health & science-backed care<br>
-          <small>Click to learn more</small>
-        </div>
-      `;
-    }
-
-    switch (href) {
-      case "#products":
+  /**
+   * Get popover content based on the provided key
+   * @param {string} key - The key corresponding to a navbar item
+   * @returns {string} HTML content to display in the popover
+   */
+  function getPopoverContent(key) {
+    switch (key) {
+      // Products navigation
+      case "products":
         return `
           <div>
             Browse our full nutrition range
           </div>
         `;
-      case "#categories":
+      
+      // Categories navigation
+      case "categories":
         return `
           <div>
             Diabetes, Protein, Snacks, Kids
           </div>
         `;
-      case "#aboutus":
+      
+      // About Us navigation
+      case "aboutus":
         return `
           <div>
             Our mission & health science
           </div>
         `;
-      case "#account":
+      
+      // Account navigation
+      case "account":
         return `
           <div>
             Login, orders & profile
           </div>
         `;
-      case "#cart":
+      
+      // Shopping cart navigation
+      case "cart":
         return `
           <div>
             View your selected items
           </div>
         `;
+      
+      // Powered by section
+      case "poweredby":
+        return `
+          <div>
+            Precision health & science-backed care<br>
+            <small>Click to learn more</small>
+          </div>
+        `;
+      
       default:
         return "";
     }
