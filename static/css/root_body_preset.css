@@ -4,7 +4,8 @@
       --accent-gold: #d4af37;
       --soft-bg: #f8f9fa;
     }
-
+/*
+sample*/
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: var(--soft-bg);

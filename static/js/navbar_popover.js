@@ -1,5 +1,15 @@
-// Initialize popovers for navbar items when the DOM is fully loaded
+// Wait for the DOM to fully load before executing the script
 document.addEventListener("DOMContentLoaded", function () {
+  // Select all navbar elements that should have popovers
+  // Targets: product, categories, and about us nav links, account and cart links, and powered-by badge
+  const popoverTargets = document.querySelectorAll(
+    '.nav-link[href="#products"], ' +
+    '.nav-link[href="#categories"], ' +
+    '.nav-link[href="#aboutus"], ' +
+    'a[href="#account"], ' +
+    'a[href="#cart"], ' +
+    '.powered-by'
+  );
 
   // Define navbar items with their IDs and corresponding content keys
   const popoverTargets = [
