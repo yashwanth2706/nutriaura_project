@@ -33,12 +33,16 @@
     <link rel="stylesheet" href="{% static 'css/topbar.css' %}">
     <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
     <link rel="stylesheet" href="{% static 'css/carousel.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
 
     <!-- Custom JS -->
     <script src="{% static 'js/closeTopBarSmoothBehaviour.js' %}"></script>
 
     <!-- Navbar Hover Popover JS -->
     <script src="{% static 'js/navbar_popover.js' %}"></script>
+
+    <!-- Footer Popover JS -->
+    <script src="{% static 'js/footer_popover.js' %}"></script>
 
     <title>Nutriaura</title>
 </head>
@@ -63,6 +67,8 @@
     <!-- Product Cards -->
     {% include "components/product_section.html" %}
     </main>
+
+    {% include "components/footer.html" %}
 
 </body>
 </html>

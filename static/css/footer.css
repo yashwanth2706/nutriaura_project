@@ -1,0 +1,97 @@
+.nutriaura-footer {
+  background: linear-gradient(135deg, var(--primary-green), var(--light-green));
+  color: white;
+}
+
+.footer-title {
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.footer-text {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--accent-gold);
+  padding-left: 6px;
+}
+
+.footer-divider {
+  border-color: rgba(255, 255, 255, 0.2);
+  margin: 2rem 0;
+}
+
+.footer-bottom-text {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-social a {
+  color: white;
+  font-size: 1.2rem;
+  margin-left: 1rem;
+  transition: all 0.3s ease;
+}
+
+.footer-social a:hover {
+  color: var(--accent-gold);
+  transform: translateY(-3px);
+}
+
+
+.footer-link {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.footer-link:hover {
+  color: var(--accent-gold);
+  text-decoration: underline;
+}
+
+.nutriaura-quote {
+  font-style: italic;
+  font-size: 1rem;
+  color: #fff;
+  border-left: 4px solid var(--accent-gold);
+  padding-left: 12px;
+  margin: 1rem 0;
+  opacity: 0.95;
+}
+
+.footer-subtitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.connect-icons a {
+  font-size: 1.3rem;
+  margin-right: 12px;
+}
+
+.connect-icons a:hover {
+  color: var(--accent-gold);
+  transform: translateY(-2px);
+}
