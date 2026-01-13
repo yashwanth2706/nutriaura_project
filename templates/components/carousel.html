@@ -1,32 +1,55 @@
     {% load static %}
-
-    <!-- Carousel -->
-    <div id="carouselExampleIndicators" class="carousel slide mt-0" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="{% static 'images/garlic_mixture.png' %}" class="d-block w-100" alt="Garlic Mixture Slide 1">
-            </div>
-            <div class="carousel-item">
-                <img src="{% static 'images/amla.png' %}" class="d-block w-100" alt="Garlic Mixture Slide 2">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Amla for Vitamin C</h5>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="{% static 'images/garlic_mixture.png' %}" class="d-block w-100" alt="Garlic Mixture Slide 3">
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
+<!-- Carousel -->
+<div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-ride="carousel">
+  
+  <!-- Carousel Indicators -->
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  
+  <!-- Carousel Inner -->
+  <div class="carousel-inner">
+    
+    <!-- Slide 1 -->
+    <div class="carousel-item active" data-bs-interval="3000">
+      <img src="{% static 'images/garlic_mixture.png' %}" class="d-block w-100" alt="Garlic Mixture">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Premium Garlic Mixture</h5>
+        <p>Natural and organic garlic blend for your health</p>
+      </div>
     </div>
+    
+    <!-- Slide 2 -->
+    <div class="carousel-item" data-bs-interval="3000">
+      <img src="{% static 'images/amla.png' %}" class="d-block w-100" alt="Amla for Vitamin C">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Amla for Vitamin C</h5>
+        <p>Rich source of natural Vitamin C and antioxidants</p>
+      </div>
+    </div>
+    
+    <!-- Slide 3 -->
+    <div class="carousel-item" data-bs-interval="3000">
+      <img src="{% static 'images/garlic_mixture.png' %}" class="d-block w-100" alt="Healthy Products">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Pure & Organic</h5>
+        <p>Quality products for a healthier lifestyle</p>
+      </div>
+    </div>    
+  </div>
+  
+  <!-- Previous Control -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  
+  <!-- Next Control -->
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+  
+</div>

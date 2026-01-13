@@ -1,51 +1,71 @@
-/* Carousel Styling */
+/* Carousel Height Control - Works with Bootstrap */
 .carousel {
-    max-height: 250px;
-    overflow: hidden;
+  max-height: 400px;
+  overflow: hidden;
 }
 
 .carousel-inner {
-    max-height: 250px;
+  max-height: 400px;
 }
 
 .carousel-item {
-    max-height: 250px;
+  max-height: 400px;
 }
 
 .carousel-item img {
-    height: 250px;
-    object-fit: cover;
-    width: 100%;
+  height: 400px;
+  object-fit: cover;
+  width: 100%;
 }
 
-/* Responsive carousel height */
-@media (max-width: 768px) {
-    .carousel,
-    .carousel-inner,
-    .carousel-item {
+/* Tablet screens (768px - 1024px) */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .carousel,
+  .carousel-inner,
+  .carousel-item {
+    max-height: 350px;
+  }
+
+  .carousel-item img {
+    height: 350px;
+  }
+}
+
+/* Tablet screens (577px - 768px) */
+@media (max-width: 768px) and (min-width: 577px) {
+  .carousel,
+  .carousel-inner,
+  .carousel-item {
     max-height: 300px;
-}
+  }
 
-.carousel-item img {
+  .carousel-item img {
     height: 300px;
-    }
+  }
 }
 
+/* Mobile screens (up to 576px) */
 @media (max-width: 576px) {
-    .carousel,
-    .carousel-inner,
-    .carousel-item {
+  .carousel,
+  .carousel-inner,
+  .carousel-item {
     max-height: 250px;
-    }
+  }
 
-    .carousel-item img {
+  .carousel-item img {
     height: 250px;
-    }
+  }
 }
 
-/* Responsive adjustments */
-@media (max-width: 991px) {
-    .form-control-navbar {
-    width: 100%;
-    }
+/* Extra small mobile screens (up to 400px) */
+@media (max-width: 400px) {
+  .carousel,
+  .carousel-inner,
+  .carousel-item {
+    max-height: 200px;
+  }
+
+  .carousel-item img {
+    height: 200px;
+  }
 }
