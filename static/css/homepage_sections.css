@@ -1,0 +1,72 @@
+/* ---------------------------------
+   COMMON CARD STYLES (ALL SECTIONS)
+---------------------------------- */
+
+.category-card .card,
+.feature-box,
+.cert-card {
+  background-color: #ffffff;
+  border-radius: 14px;
+  padding: 2rem 1.5rem;
+  cursor: pointer;
+  transition: 
+    background-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Hover Effects */
+.category-card .card:hover,
+.feature-box:hover,
+.cert-card:hover {
+  background-color: #f1f8f4;   /* Very light green */
+  transform: translateY(-8px);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.12);
+}
+
+/* Icon Animation */
+.category-card i,
+.feature-box i,
+.cert-card i {
+  transition: transform 0.3s ease;
+}
+
+.category-card .card:hover i,
+.feature-box:hover i,
+.cert-card:hover i {
+  transform: scale(1.15);
+}
+
+/* Headings */
+.category-card h5,
+.feature-box h5,
+.cert-card h5 {
+  color: var(--primary-green);
+  font-weight: 600;
+}
+
+/* Text */
+.category-card p,
+.feature-box p,
+.cert-card p {
+  font-size: 0.95rem;
+  margin-bottom: 0;
+}
+
+/* ---------------------------------
+   RESPONSIVE TWEAKS
+---------------------------------- */
+
+@media (max-width: 768px) {
+  .category-card .card,
+  .feature-box,
+  .cert-card {
+    padding: 1.5rem 1rem;
+  }
+}
+
+  .categories-section h2,
+  .why-choose-section h2,
+  .certifications-section h2 {
+    font-size: 1.5rem;
+  }

@@ -1,0 +1,245 @@
+/* Product Section Styles */
+
+.product-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15) !important;
+}
+
+.product-image-container {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.product-image-container img {
+  transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-image-container img {
+  transform: scale(1.1);
+}
+
+/* Wishlist Button */
+.wishlist-btn {
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.wishlist-btn:hover {
+  background-color: #ffe5e5 !important;
+  transform: scale(1.1);
+}
+
+.wishlist-btn.active {
+  background-color: #ffcccc !important;
+}
+
+.wishlist-btn.active i {
+  color: #dc3545;
+}
+
+.wishlist-btn.active i::before {
+  content: "\f59c"; /* filled heart icon */
+}
+
+/* Add to Cart Button */
+.add-to-cart-btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.add-to-cart-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.add-to-cart-btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.add-to-cart-btn:hover {
+  background-color: var(--light-green) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(45, 90, 45, 0.3);
+}
+
+.add-to-cart-btn:active {
+  transform: translateY(0);
+}
+
+.add-to-cart-btn.added {
+  background-color: #28a745 !important;
+}
+
+.add-to-cart-btn.added i::before {
+  content: "\f058"; /* check circle icon */
+}
+
+/* Product Navigation Buttons */
+.product-nav-btn {
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.product-nav-btn:hover {
+  border-color: var(--primary-green);
+  background-color: var(--primary-green);
+  color: white;
+  transform: scale(1.1);
+}
+
+.product-nav-btn:active {
+  transform: scale(0.95);
+}
+
+/* Product Badge Styles */
+.badge {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+}
+
+/* Product Card Body */
+.card-body h3 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  min-height: 3em;
+}
+
+/* Rating Stars */
+.text-warning i {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Price Styling */
+.card-body h4 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: -0.5px;
+}
+
+.card-body small.text-muted {
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
+
+/* Select Dropdown */
+.form-select {
+  border: 2px solid #e9ecef;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.form-select:focus {
+  border-color: var(--light-green);
+  box-shadow: 0 0 0 3px rgba(90, 125, 90, 0.1);
+}
+
+.form-select:hover {
+  border-color: var(--light-green);
+}
+
+/* Categories Section */
+.categories-section {
+  background: white;
+}
+
+.categories-section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.categories-section .card {
+  cursor: pointer;
+  height: 100%;
+  min-height: 200px;
+}
+
+.categories-section .card i {
+  transition: transform 0.3s ease;
+}
+
+.categories-section .card:hover i {
+  transform: scale(1.2) rotate(5deg);
+}
+
+/* Why Choose Section */
+.why-choose-section {
+  background-color: var(--soft-bg);
+}
+
+.why-choose-section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.why-choose-section .feature-box {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.why-choose-section .feature-box i {
+  transition: transform 0.3s ease;
+}
+
+.why-choose-section .feature-box:hover i {
+  transform: scale(1.2);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .product-nav-btn {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .categories-section h2,
+  .why-choose-section h2 {
+    font-size: 1.5rem;
+  }
+  
+  .card-body h3 {
+    font-size: 1rem;
+  }
+  
+  .badge {
+    font-size: 0.65rem;
+    padding: 0.25rem 0.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .product-image-container {
+    height: 200px !important;
+  }
+  
+  .categories-section .card {
+    min-height: 150px;
+  }
+  
+  .categories-section .card i {
+    font-size: 2rem !important;
+  }
+}
