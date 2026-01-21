@@ -1,92 +1,80 @@
 {% load static %}
-
 <footer class="nutriaura-footer mt-5">
   <div class="container py-5">
-    <div class="row g-4">
-
-      <!-- Brand & Quote -->
-      <div class="col-lg-4 col-md-6">
-        <h5 class="footer-title">NutriAura</h5>
-
-        <blockquote class="nutriaura-quote">
-          “Smart nutrition for healthier living - <br>
-          powered by science, driven by nature.”
-        </blockquote>
-
-        <p class="footer-text">
-          Transform your health with the world’s first technology-enabled, 
-          scientifically validated <strong>Twin Precision Treatment</strong>.  
-          Achieve a healthier metabolism, reduce medication dependence,  
-          and minimize the risk of heart attack, stroke, and other complications.
-        </p>
-      </div>
-
-      <!-- Contact -->
-      <div class="col-lg-4 col-md-6">
-        <h5 class="footer-title">Contact Us</h5>
-
-        <p class="footer-text">
-        <i class="bi bi-telephone-fill me-2"></i>
-        <a href="tel:+918925691113" class="footer-link" id="footer-phone">
-            +91 89256 91113
-        </a>
-        </p>
-
-        <p class="footer-text">
-        <i class="bi bi-envelope-fill me-2"></i>
-        <a href="mailto:tellus@nutriaura.in" class="footer-link" id="footer-email">
-            tellus@nutriaura.in
-        </a>
-        </p>
-
-        <p class="footer-text">
-        <i class="bi bi-geo-alt-fill me-2"></i>
-        <a href="https://maps.google.com/?q=Millenia+Business+Park+Phase+2+Perungudi+Chennai"
-            target="_blank"
-            class="footer-link"
-            id="footer-address">
-            TWINS DIGITAL SERVICES INDIA PVT LTD., <br>
-            Millenia Business Park – Phase 2,<br>
-            Symbyont Smart Spaces, Campus 5, 9th Floor,<br>
-            143, Dr. MGR Road, Perungudi, Kandanchavadi,<br>
-            Chennai, Tamil Nadu, India - 600096
-        </a>
-        </p>
-
-        <!-- Connect With Us -->
-        <h6 class="footer-subtitle mt-5">🌐 Connect With Us</h6>
-        <div class="footer-social connect-icons">
-            <a href="https://instagram.com" target="_blank" id="social-instagram"><i class="bi bi-instagram"></i></a>
-            <a href="https://www.facebook.com/profile.php?id=61569570666678" target="_blank" id="social-facebook"><i class="bi bi-facebook"></i></a>
-            <a href="https://twitter.com" target="_blank" id="social-twitter"><i class="bi bi-twitter-x"></i></a>
-            <a href="https://www.youtube.com/@NutriAura-TH" target="_blank" id="social-youtube"><i class="bi bi-youtube"></i></a>
-            <a href="https://wa.me/919500608946" target="_blank" id="social-whatsapp"><i class="bi bi-whatsapp"></i></a>
+    <div class="row g-4 text-center text-md-start">
+      
+      <!-- Contact Options (Left) -->
+      <div class="col-lg-4 col-md-4 col-sm-12 order-1 order-md-1 text-end">
+        <div class="footer-help-dropdown">
+          <button class="footer-help-btn">
+            Contact Us <i class="bi bi-chevron-down ms-1"></i>
+          <ul class="footer-help-menu">
+            <li>
+              <a href="tel:+918925691113" id="footer-phone">
+                <i class="bi bi-telephone-fill me-2"></i> Call Us
+              </a>
+            </li>
+            <li>
+              <a href="mailto:tellus@nutriaura.in" id="footer-email">
+                <i class="bi bi-envelope-fill me-2"></i> Mail Us
+              </a>
+            </li>
+            <li>
+              <a href="https://maps.google.com/?q=Millenia+Business+Park+Phase+2+Perungudi+Chennai"
+                target="_blank"
+                id="footer-address">
+                <i class="bi bi-geo-alt-fill me-2"></i> Locate Us
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
 
-      <!-- Help & Links -->
-      <div class="col-lg-4 col-md-12">
-        <h5 class="footer-title">Help</h5>
-        <ul class="footer-links">
-          <li><a href="#faq">FAQs</a></li>
-          <li><a href="#shipping">Shipping & Delivery</a></li>
-          <li><a href="#returns">Returns & Refunds</a></li>
-          <li><a href="#privacy">Privacy Policy</a></li>
-          <li><a href="#terms">Terms & Conditions</a></li>
-        </ul>
+      <!-- Connect With Us (Center) -->
+      <div class="col-lg-4 col-md-4 col-sm-12 order-2 order-md-2">
+        <h6 class="footer-subtitle text-center d-flex justify-content-center align-items-center gap-2">
+          <i class="bi bi-globe2"></i>
+          Connect With Us
+        </h6>
+        <div class="footer-social connect-icons mt-2">
+          <a href="https://instagram.com" target="_blank" id="social-instagram"><i class="bi bi-instagram"></i></a>
+          <a href="https://www.facebook.com/profile.php?id=61569570666678" target="_blank" id="social-facebook"><i class="bi bi-facebook"></i></a>
+          <a href="https://twitter.com" target="_blank" id="social-twitter"><i class="bi bi-twitter-x"></i></a>
+          <a href="https://www.youtube.com/@NutriAura-TH" target="_blank" id="social-youtube"><i class="bi bi-youtube"></i></a>
+          <a href="https://wa.me/919500608946" target="_blank" id="social-whatsapp"><i class="bi bi-whatsapp"></i></a>
+        </div>
       </div>
 
-    </div>
+      <!-- Help Center (Right) - Empty placeholder for future implementation -->
+      <div class="col-lg-4 col-md-4 col-sm-12 order-3 order-md-3">
+        <!-- Reserved for Help Center -->
+      </div>
 
+<!-- Help Center - Commented for future implementation
+      <div class="col-lg-4 col-md-4 col-sm-12">
+        <div class="footer-help-dropdown">
+          <button class="footer-help-btn">
+            Help Center <i class="bi bi-chevron-down ms-1"></i>
+          </button>
+          <ul class="footer-help-menu">
+            <li><a href="#faq">FAQs</a></li>
+            <li><a href="#shipping">Shipping & Delivery</a></li>
+            <li><a href="#returns">Returns & Refunds</a></li>
+            <li><a href="#privacy">Privacy Policy</a></li>
+            <li><a href="#terms">Terms & Conditions</a></li>
+          </ul>
+        </div>
+      </div>
+-->
+
+    </div>
     <!-- Divider -->
     <hr class="footer-divider">
-
     <!-- Bottom Bar -->
-    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
-      <p class="mb-2 mb-md-0 footer-bottom-text">
+    <div class="d-flex justify-content-center align-items-center text-center">
+      <p class="mb-0 footer-bottom-text" style="font-size: 0.85rem;">
         © 2026 NutriAura. All rights reserved.
       </p>
     </div>
-
   </div>
 </footer>

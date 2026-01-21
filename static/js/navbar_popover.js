@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return `
           <div>
             Precision health & science-backed care<br>
-            <small>Click to learn more</small>
+            <small>Go to NutriAura homepage</small>
           </div>
         `;
       
