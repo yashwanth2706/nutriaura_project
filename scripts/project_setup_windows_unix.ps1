@@ -1,18 +1,18 @@
-$ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
+$ScriptDir  = Split-Path -Parent $MyInvocation.MyCommand.Path
 $ProjectRoot = Resolve-Path (Join-Path $ScriptDir "..")
 
 $ManagePy = Join-Path $ProjectRoot "manage.py"
+$RequirementsFile = Join-Path $ProjectRoot "requirements.txt"
+$VenvName = Join-Path $ProjectRoot ".venv"
+$EnvFile  = Join-Path $ProjectRoot ".env"
 
 if (-not (Test-Path $ManagePy)) {
     Write-Error "manage.py not found in project root: $ProjectRoot"
     exit 1
 }
 
-$VenvName = Join-Path $ProjectRoot ".venv"
-$EnvFile  = Join-Path $ProjectRoot ".env"
-
 function New-RandomSecretKey {
-    $length = 16
+    $length = 64
     $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_=+'
     $bytes = New-Object byte[] $length
     [System.Security.Cryptography.RandomNumberGenerator]::Create().GetBytes($bytes)
@@ -23,54 +23,52 @@ Write-Host "==============================="
 Write-Host " Project Setup (Windows - PS)"
 Write-Host "==============================="
 
-# Check if virtual environment exists
+# Recreate virtual environment
 if (Test-Path $VenvName) {
     Write-Host "Existing virtual environment detected. Removing..."
     Remove-Item -Recurse -Force $VenvName
 }
 
-# Create virtual environment
 Write-Host "Creating virtual environment..."
 python -m venv $VenvName
 
-# Activate virtual environment
 Write-Host "Activating virtual environment..."
 & "$VenvName\Scripts\Activate.ps1"
 
-# Upgrade pip
 Write-Host "Upgrading pip..."
 python -m pip install --upgrade pip
 
-# Install dependencies
-if (Test-Path "requirements.txt") {
+# Install dependencies FROM PROJECT ROOT
+if (Test-Path $RequirementsFile) {
     Write-Host "Installing dependencies from requirements.txt..."
-    pip install -r requirements.txt
+    pip install -r $RequirementsFile
 } else {
-    Write-Error "requirements.txt not found!"
+    Write-Error "requirements.txt not found in project root: $ProjectRoot"
     exit 1
 }
 
+# Create .env ONLY IN PROJECT ROOT
 if (-not (Test-Path $EnvFile)) {
-    Write-Host "Creating .env file..."
+    Write-Host "Creating .env file in project root..."
 
     $SecretKey = New-RandomSecretKey
 
 @"
 DEBUG=True
 SECRET_KEY=$SecretKey
-"@ | Out-File -FilePath $EnvFile -Encoding utf8
+"@ | Out-File -FilePath $EnvFile -Encoding utf8 -Force
 
     Write-Host "--------------------------------"
     Write-Host "IMPORTANT:"
-    Write-Host ".env file was created with a generated SECRET_KEY."
-    Write-Host "Please CHANGE the SECRET_KEY value before deploying to production."
+    Write-Host ".env file created in project root."
+    Write-Host "CHANGE the SECRET_KEY before production use."
     Write-Host "--------------------------------"
 } else {
-    Write-Host ".env file already exists. Skipping creation."
+    Write-Host ".env file already exists in project root. Skipping creation."
 }
 
 Write-Host "==============================="
 Write-Host " Setup completed successfully!"
-Write-Host " To activate later:"
+Write-Host " Activate later using:"
 Write-Host "     $VenvName\Scripts\Activate.ps1"
 Write-Host "==============================="
