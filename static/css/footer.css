@@ -30,7 +30,7 @@
 
 .footer-help-btn {
   background: transparent;
-  border: 2px solid var(--accent-gold);
+  border: 2px solid #A8DF8E;
   color: var(--primary-green);
   padding: 8px 16px;
   border-radius: 20px;
@@ -40,15 +40,17 @@
 }
 
 .footer-help-btn:hover {
-  background: var(--accent-gold);
-  color: #000;
+  background: #000000;
+  color: #ffffff;
+  border-color: #000000;
 }
 
 .footer-help-menu {
   list-style: none;
   margin: 8px 0 0;
   padding: 10px 0;
-  background: #111;
+  text-align: left;
+  background: #ffffff;
   border-radius: 12px;
   position: absolute;
   left: 0;
@@ -64,6 +66,7 @@
 .footer-help-menu li a {
   display: block;
   padding: 8px 16px;
+  background: #ffffff;
   color: var(--primary-green);
   text-decoration: none;
   font-size: 0.9rem;
@@ -71,7 +74,8 @@
 }
 
 .footer-help-menu li a:hover {
-  background: rgba(255,255,255,0.1);
+  background:  #000000;
+  color: #ffffff;
 }
 
 .footer-help-dropdown:hover .footer-help-menu {
@@ -130,6 +134,6 @@
 }
 
 .connect-icons a:hover {
-  color: var(--accent-gold);
+  color: #000000;
   transform: translateY(-2px);
 }
