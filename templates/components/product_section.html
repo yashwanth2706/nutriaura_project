@@ -1,4 +1,4 @@
-
+{% load static %}
 <!-- Product Cards Section -->
 <section class="container my-5">
     <div class="position-relative">
@@ -24,11 +24,9 @@
                             <i class="bi bi-heart"></i>
                         </button>
                         
-                        <!-- Image Placeholder -->
-                        <div class="bg-light d-flex align-items-center justify-content-center" 
-                             style="height: 250px;">
-                            <span class="text-muted">Image Placeholder</span>
-                        </div>
+                        <!-- Product Image -->
+                        <img src="{% static 'images/Trimblend.png' %}" alt="Trimblend(Women Health)" 
+                             class="card-img-top" style="height: 350px; object-fit: cover;">
                     </div>
 
                     <!-- Card Body -->
@@ -80,7 +78,7 @@
                         
                         <!-- Image Placeholder -->
                         <div class="bg-light d-flex align-items-center justify-content-center" 
-                             style="height: 250px;">
+                             style="height: 350px;">
                             <span class="text-muted">Image Placeholder</span>
                         </div>
                     </div>
