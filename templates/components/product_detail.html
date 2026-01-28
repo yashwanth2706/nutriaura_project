@@ -55,7 +55,7 @@
                   <option :value="size" x-text="size"></option>
                 </template>
               </select>
-              <button class="btn text-white fw-semibold py-2 mt-auto" style="background-color: #2d5f2e;">
+              <button class="btn text-white fw-semibold py-2 mt-auto" style="background-color: #2d5f2e;" @click="addToCart()">
                 ADD TO CART
               </button>
             </div>
@@ -144,6 +144,18 @@
         // Show carousel
         const carousel = document.getElementById('carouselExampleIndicators');
         if (carousel) carousel.style.display = 'block';
+      },
+
+      addToCart() {
+        if (this.selectedProduct) {
+          const event = new CustomEvent('addToCart', {
+            detail: {
+              product: this.selectedProduct,
+              size: this.selectedSize
+            }
+          });
+          document.dispatchEvent(event);
+        }
       },
 
       init() {

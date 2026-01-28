@@ -69,9 +69,9 @@
         -->
 
         <!-- Cart -->
-        <a id="nav-cart" class="icon-btn" href="#cart" title="Shopping Cart">
+        <a id="nav-cart" class="icon-btn" href="javascript:void(0)" onclick="document.dispatchEvent(new CustomEvent('toggleCart'))" title="Shopping Cart">
           <i class="bi bi-cart3"></i>
-          <span class="cart-badge">2</span>
+          <span class="cart-badge" id="cart-badge-count">0</span>
         </a>
 
       </div>

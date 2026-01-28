@@ -1,0 +1,267 @@
+<!-- Shopping Cart Container -->
+<div id="cart-container" x-data="cartManager()" x-cloak>
+  
+  <!-- Cart Notification Toasts Container -->
+  <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1060;">
+    <template x-for="(notification, idx) in notifications" :key="idx">
+      <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header" :style="{ backgroundColor: '#2d5f2e', color: 'white' }">
+          <i class="bi bi-check-circle-fill me-2"></i>
+          <strong class="me-auto">Added to Cart</strong>
+          <button type="button" class="btn-close btn-close-white" @click="removeNotification(idx)" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+          <p x-text="notification.message" class="mb-0"></p>
+        </div>
+      </div>
+    </template>
+  </div>
+
+  <!-- Bootstrap Offcanvas (Side Panel) for Cart -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas" aria-labelledby="cartOffcanvasLabel">
+    <!-- Offcanvas Header -->
+    <div class="offcanvas-header border-bottom">
+      <h5 class="offcanvas-title" id="cartOffcanvasLabel">
+        <i class="bi bi-cart3 me-2"></i>Shopping Cart
+      </h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+
+    <!-- Offcanvas Body -->
+    <div class="offcanvas-body p-0 d-flex flex-column">
+      <!-- Cart Items -->
+      <template x-if="items.length > 0">
+        <div class="flex-grow-1 overflow-y-auto" style="max-height: calc(100vh - 300px);">
+          <div class="cart-items-list">
+            <template x-for="(item, index) in items" :key="index">
+              <div class="border-bottom p-3 cart-item-card">
+                <!-- Product Image -->
+                <div class="d-flex gap-3">
+                  <img :src="'/static/images/' + item.image" :alt="item.name" 
+                       style="width: 80px; height: 80px; object-fit: cover; border-radius: 4px;">
+                  
+                  <!-- Product Details -->
+                  <div class="flex-grow-1">
+                    <h6 class="mb-1" x-text="item.name"></h6>
+                    <p class="text-muted small mb-2">Size: <span x-text="item.size"></span></p>
+                    
+                    <!-- Quantity Controls -->
+                    <div class="d-flex align-items-center gap-2 mb-2">
+                      <button @click="decreaseQuantity(index)" class="btn btn-sm btn-outline-secondary" style="padding: 0.25rem 0.5rem;">
+                        <i class="bi bi-dash"></i>
+                      </button>
+                      <input type="number" x-model.number="item.quantity" @change="updateQuantity(index)" min="1" 
+                             class="form-control form-control-sm" style="width: 50px; text-align: center;" readonly>
+                      <button @click="increaseQuantity(index)" class="btn btn-sm btn-outline-secondary" style="padding: 0.25rem 0.5rem;">
+                        <i class="bi bi-plus"></i>
+                      </button>
+                    </div>
+
+                    <!-- Price -->
+                    <div class="d-flex justify-content-between align-items-center">
+                      <strong class="text-success">₹<span x-text="(item.price * item.quantity).toFixed(2)"></span></strong>
+                      <button @click="removeItem(index)" class="btn btn-sm btn-link text-danger p-0" title="Remove item">
+                        <i class="bi bi-trash"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </template>
+          </div>
+        </div>
+      </template>
+
+      <!-- Empty Cart Message -->
+      <template x-if="items.length === 0">
+        <div class="flex-grow-1 d-flex flex-column align-items-center justify-content-center text-muted">
+          <i class="bi bi-cart-x" style="font-size: 3rem; opacity: 0.5;"></i>
+          <p class="mt-3">Your cart is empty</p>
+          <small>Add some products to get started!</small>
+        </div>
+      </template>
+
+      <!-- Cart Summary (Sticky Footer) -->
+      <template x-if="items.length > 0">
+        <div class="border-top p-3 mt-auto">
+          <!-- Summary Rows -->
+          <div class="mb-3">
+            <div class="d-flex justify-content-between mb-2">
+              <span>Subtotal:</span>
+              <span>₹<span x-text="subtotal.toFixed(2)"></span></span>
+            </div>
+            <div class="d-flex justify-content-between mb-3 pb-3 border-bottom">
+              <span>Shipping:</span>
+              <span>₹<span x-text="shipping.toFixed(2)"></span></span>
+            </div>
+            <div class="d-flex justify-content-between mb-3">
+              <strong>Total:</strong>
+              <strong class="text-success h5">₹<span x-text="total.toFixed(2)"></span></strong>
+            </div>
+          </div>
+
+          <!-- Checkout Button -->
+          <button class="btn btn-success w-100 fw-semibold py-2" style="background-color: #2d5f2e; border-color: #2d5f2e;" @click="checkout()">
+            <i class="bi bi-credit-card me-2"></i>Proceed to Checkout
+          </button>
+        </div>
+      </template>
+    </div>
+  </div>
+</div>
+
+<script>
+  function cartManager() {
+    return {
+      items: [],
+      notifications: [],
+      shipping: 100, // Fixed shipping cost
+
+      get subtotal() {
+        return this.items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+      },
+
+      get total() {
+        return this.subtotal + this.shipping;
+      },
+
+      openCart() {
+        const offcanvas = new bootstrap.Offcanvas(document.getElementById('cartOffcanvas'));
+        offcanvas.show();
+      },
+
+      closeCart() {
+        const offcanvas = bootstrap.Offcanvas.getInstance(document.getElementById('cartOffcanvas'));
+        if (offcanvas) {
+          offcanvas.hide();
+        }
+      },
+
+      addToCart(product, size) {
+        // Check if product with same size already exists
+        const existingItem = this.items.find(item => item.id === product.id && item.size === size);
+        
+        if (existingItem) {
+          existingItem.quantity += 1;
+        } else {
+          this.items.push({
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            image: product.image,
+            size: size,
+            quantity: 1
+          });
+        }
+
+        // Update cart badge
+        this.updateCartBadge();
+
+        // Show notification
+        this.showNotification(`${product.name} added to cart!`);
+      },
+
+      removeItem(index) {
+        this.items.splice(index, 1);
+        this.updateCartBadge();
+      },
+
+      increaseQuantity(index) {
+        this.items[index].quantity += 1;
+      },
+
+      decreaseQuantity(index) {
+        if (this.items[index].quantity > 1) {
+          this.items[index].quantity -= 1;
+        } else {
+          this.removeItem(index);
+        }
+      },
+
+      updateQuantity(index) {
+        if (this.items[index].quantity < 1) {
+          this.removeItem(index);
+        }
+      },
+
+      updateCartBadge() {
+        const badge = document.getElementById('cart-badge-count');
+        if (badge) {
+          badge.textContent = this.items.length;
+          badge.style.display = this.items.length > 0 ? 'block' : 'none';
+        }
+      },
+
+      showNotification(message) {
+        const notification = {
+          message: message,
+          id: Date.now()
+        };
+        this.notifications.push(notification);
+
+        // Auto-remove notification after 5 seconds
+        setTimeout(() => {
+          this.removeNotification(this.notifications.length - 1);
+        }, 5000);
+      },
+
+      removeNotification(index) {
+        this.notifications.splice(index, 1);
+      },
+
+      checkout() {
+        if (this.items.length === 0) {
+          alert('Your cart is empty!');
+          return;
+        }
+        
+        // Create checkout summary
+        const itemsSummary = this.items
+          .map(item => `${item.name} (${item.size}) x${item.quantity}`)
+          .join('\n');
+        
+        const message = `Order Summary:\n\n${itemsSummary}\n\nSubtotal: ₹${this.subtotal.toFixed(2)}\nShipping: ₹${this.shipping.toFixed(2)}\nTotal: ₹${this.total.toFixed(2)}\n\nProceed to payment?`;
+        
+        if (confirm(message)) {
+          // Here you would typically redirect to a payment page or process the order
+          alert('Thank you for your order! Proceeding to payment...');
+          // Clear cart after successful checkout
+          this.items = [];
+          this.updateCartBadge();
+          this.closeCart();
+        }
+      },
+
+      init() {
+        // Listen for add to cart events
+        document.addEventListener('addToCart', (e) => {
+          this.addToCart(e.detail.product, e.detail.size);
+        });
+
+        // Listen for cart toggle
+        document.addEventListener('toggleCart', () => {
+          this.openCart();
+        });
+
+        // Initialize cart badge
+        this.updateCartBadge();
+      }
+    }
+  }
+
+  // Initialize after Alpine.js is ready
+  document.addEventListener('alpine:init', () => {
+    const container = document.getElementById('cart-container');
+    if (container && container.__x) {
+      container.__x.init();
+    }
+  });
+
+  // Also try initialization after a short delay
+  setTimeout(() => {
+    const container = document.getElementById('cart-container');
+    if (container && container.__x) {
+      container.__x.init();
+    }
+  }, 100);
+</script>

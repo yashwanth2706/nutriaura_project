@@ -151,10 +151,10 @@ class ProductCarousel {
                         <div class="d-flex align-items-center justify-content-between mb-3">
                             <h4 class="mb-0 fw-bold">₹${product.price}</h4>
                         </div>
-                        <select class="form-select mb-3">
+                        <select class="form-select mb-3 product-size-select">
                             ${product.sizes.map(size => `<option selected>${size}</option>`).join('')}
                         </select>
-                        <button class="btn text-white fw-semibold py-2 mt-auto" style="background-color: #2d5f2e;" onclick="event.stopPropagation();">
+                        <button class="btn text-white fw-semibold py-2 mt-auto btn-add-to-cart" style="background-color: #2d5f2e;" data-product-id="${product.id}" onclick="event.stopPropagation();">
                             ADD TO CART
                         </button>
                     </div>
@@ -164,6 +164,7 @@ class ProductCarousel {
 
         this.updateButtonStates();
         this.attachFavoriteButtons();
+        this.attachAddToCartButtons();
         this.attachProductCardClickHandlers();
     }
 
@@ -240,6 +241,29 @@ class ProductCarousel {
                 const icon = this.querySelector('i');
                 icon.classList.toggle('bi-heart');
                 icon.classList.toggle('bi-heart-fill');
+            });
+        });
+    }
+
+    attachAddToCartButtons() {
+        document.querySelectorAll('.btn-add-to-cart').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const productId = parseInt(btn.getAttribute('data-product-id'));
+                const product = products.find(p => p.id === productId);
+                const sizeSelect = btn.closest('.card-body').querySelector('.product-size-select');
+                const size = sizeSelect ? sizeSelect.value : product.sizes[0];
+
+                if (product) {
+                    // Dispatch addToCart event
+                    const event = new CustomEvent('addToCart', {
+                        detail: {
+                            product: product,
+                            size: size
+                        }
+                    });
+                    document.dispatchEvent(event);
+                }
             });
         });
     }
