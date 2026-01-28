@@ -1,7 +1,7 @@
 {% load static %}
 <!-- Product Cards Section -->
 <section class="container my-5">
-    <div class="position-relative">
+    <div class="position-relative" style="overflow: hidden;">
         <!-- Previous Button -->
         <button class="btn btn-light position-absolute top-50 start-0 translate-middle-y rounded-circle shadow-sm"
             style="z-index: 10; width: 40px; height: 40px; left: -20px;">
@@ -9,204 +9,8 @@
         </button>
 
         <!-- Product Cards Container -->
-        <div class="row g-4">
-            <!-- Product Card 1 - Best Seller -->
-            <div class="col-12 col-sm-6 col-lg-3">
-                <div class="card h-100 shadow-sm border-0">
-                    <!-- Badge and Favorite -->
-                    <div class="position-relative">
-                        <span class="badge position-absolute top-0 start-0 m-3 px-3 py-2"
-                            style="background-color: #2d5f2e; z-index: 5;">
-                            Best Seller
-                        </span>
-                        <button class="btn btn-light position-absolute top-0 end-0 m-3 rounded-circle p-2"
-                            style="width: 36px; height: 36px; z-index: 5;">
-                            <i class="bi bi-heart"></i>
-                        </button>
-
-                        <!-- Product Image -->
-                        <img src="{% static 'images/Trimblend.png' %}" alt="Trimblend(Women Health)"
-                            class="card-img-top" style="height: 350px; object-fit: cover;">
-                    </div>
-
-                    <!-- Card Body -->
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title fw-semibold mb-2">Trimblend</h5>
-                        <p class="text-muted small mb-2">Women Health</p>
-
-                        <!-- Rating -->
-                        <div class="d-flex align-items-center mb-3">
-                            <span class="text-warning me-1">★★★★★</span>
-                            <span class="fw-semibold me-1">4.9</span>
-                            <span class="text-muted small">1k+ Reviews</span>
-                        </div>
-
-                        <!-- Price -->
-                        <div class="d-flex align-items-center justify-content-between mb-3">
-                            <h4 class="mb-0 fw-bold">₹450</h4>
-                        </div>
-
-                        <!-- Dropdown -->
-                        <select class="form-select mb-3">
-                            <option selected>110g</option>
-                    
-                        </select>
-
-                        <!-- Add to Cart Button -->
-                        <button class="btn text-white fw-semibold py-2 mt-auto" style="background-color: #2d5f2e;">
-                            ADD TO CART
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product Card 2 - 6% GST OFF -->
-            <div class="col-12 col-sm-6 col-lg-3">
-                <div class="card h-100 shadow-sm border-0">
-                    <!-- Badge and Favorite -->
-                    <div class="position-relative">
-                        <span class="badge position-absolute top-0 start-0 m-3 px-3 py-2"
-                            style="background-color: #2d5f2e; z-index: 5;">
-                            6% GST OFF
-                        </span>
-                        <button class="btn btn-light position-absolute top-0 end-0 m-3 rounded-circle p-2"
-                            style="width: 36px; height: 36px; z-index: 5;">
-                            <i class="bi bi-heart"></i>
-                        </button>
-
-                        <!-- Product Image -->
-                        <img src="{% static 'images/coconut bread mix.png' %}" alt="A2 Gir Cow Cultured Ghee"
-                            class="card-img-top" style="height: 350px; object-fit: cover;">
-                    </div>
-
-                    <!-- Card Body -->
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title fw-semibold mb-2">Coconut Breadmix</h5>
-                        <p class="text-muted small mb-2">Made with Cocounut</p>
-
-                        <!-- Rating -->
-                        <div class="d-flex align-items-center mb-3">
-                            <span class="text-warning me-1">★★★★★</span>
-                            <span class="fw-semibold me-1">4.9</span>
-                            <span class="text-muted small">2k+ Reviews</span>
-                        </div>
-
-                        <!-- Price -->
-                        <div class="d-flex align-items-center justify-content-between mb-3">
-                            <h4 class="mb-0 fw-bold">₹600</h4>
-                        </div>
-
-                        <!-- Dropdown -->
-                        <select class="form-select mb-3">
-                            <option selected>400g</option>
-                
-                        </select>
-
-                        <!-- Add to Cart Button -->
-                        <button class="btn text-white fw-semibold py-2 mt-auto" style="background-color: #2d5f2e;">
-                            ADD TO CART
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product Card 3 - Trending -->
-            <div class="col-12 col-sm-6 col-lg-3">
-                <div class="card h-100 shadow-sm border-0">
-                    <!-- Badge and Favorite -->
-                    <div class="position-relative">
-                        <span class="badge position-absolute top-0 start-0 m-3 px-3 py-2"
-                            style="background-color: #ff8c00; z-index: 5;">
-                            Trending
-                        </span>
-                        <button class="btn btn-light position-absolute top-0 end-0 m-3 rounded-circle p-2"
-                            style="width: 36px; height: 36px; z-index: 5;">
-                            <i class="bi bi-heart"></i>
-                        </button>
-
-                        <!-- Product Image -->
-                        <img src="{% static 'images/spinach soup.png' %}" alt="Khapli Multigrain Atta"
-                            class="card-img-top" style="height: 350px; object-fit: cover;">
-                    </div>
-
-                    <!-- Card Body -->
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title fw-semibold mb-2">Creamy Spinach Instant Soupmix </h5>
-
-                        <!-- Rating -->
-                        <div class="d-flex align-items-center mb-3">
-                            <span class="text-warning me-1">★★★★★</span>
-                            <span class="fw-semibold me-1">4.9</span>
-                            <span class="text-muted small">248 Reviews</span>
-                        </div>
-
-                        <!-- Price -->
-                        <div class="d-flex align-items-center justify-content-between mb-3">
-                            <h4 class="mb-0 fw-bold">₹499</h4>
-                        </div>
-
-                        <!-- Dropdown -->
-                        <select class="form-select mb-3">
-                            <option selected>110g</option>
-                            
-                        </select>
-
-                        <!-- Add to Cart Button -->
-                        <button class="btn text-white fw-semibold py-2 mt-auto" style="background-color: #2d5f2e;">
-                            ADD TO CART
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product Card 4 - Must Try -->
-            <div class="col-12 col-sm-6 col-lg-3">
-                <div class="card h-100 shadow-sm border-0">
-                    <!-- Badge and Favorite -->
-                    <div class="position-relative">
-                        <span class="badge position-absolute top-0 start-0 m-3 px-3 py-2"
-                            style="background-color: #7b3ff2; z-index: 5;">
-                            Must Try
-                        </span>
-                        <button class="btn btn-light position-absolute top-0 end-0 m-3 rounded-circle p-2"
-                            style="width: 36px; height: 36px; z-index: 5;">
-                            <i class="bi bi-heart"></i>
-                        </button>
-
-                        <!-- Product Image -->
-                        <img src="{% static 'images/curry soup.png' %}" alt="Date Palm Jaggery Solid"
-                            class="card-img-top" style="height: 350px; object-fit: cover;">
-                    </div>
-
-                    <!-- Card Body -->
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title fw-semibold mb-2">Curry Leaves instant Soup Mix</h5>
-                        
-
-                        <!-- Rating -->
-                        <div class="d-flex align-items-center mb-3">
-                            <span class="text-warning me-1">★★★★★</span>
-                            <span class="fw-semibold me-1">4.9</span>
-                            <span class="text-muted small">163 Reviews</span>
-                        </div>
-
-                        <!-- Price -->
-                        <div class="d-flex align-items-center justify-content-between mb-3">
-                            <h4 class="mb-0 fw-bold">₹499</h4>
-                        </div>
-
-                        <!-- Dropdown -->
-                        <select class="form-select mb-3">
-                            <option selected>110 g</option>
-                        </select>
-
-                        <!-- Add to Cart Button -->
-                        <button class="btn text-white fw-semibold py-2 mt-auto" style="background-color: #2d5f2e;">
-                            ADD TO CART
-                        </button>
-                    </div>
-                </div>
-            </div>
+        <div class="row g-4" style="display: flex; transition: transform 0.3s ease-in-out;">
+            <!-- Products rendered by JavaScript -->
         </div>
 
         <!-- Next Button -->
@@ -216,3 +20,5 @@
         </button>
     </div>
 </section>
+
+<script src="{% static 'js/products.js' %}"></script>
