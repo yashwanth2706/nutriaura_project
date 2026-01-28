@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", function () {
   // Define navbar items with their IDs and corresponding content keys
   const popoverTargets = [
     { id: "nav-products", key: "products" },
-    { id: "nav-categories", key: "categories" },
     { id: "nav-aboutus", key: "aboutus" },
     { id: "nav-account", key: "account" },
     { id: "nav-cart", key: "cart" },
