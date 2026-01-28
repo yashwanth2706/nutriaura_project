@@ -9,7 +9,9 @@ export const products = [
         badgeColor: "#2d5f2e",
         rating: 4.9,
         reviews: "1k+ Reviews",
-        sizes: ["110g"]
+        sizes: ["110g"],
+        description: "A specially formulated blend designed for women's health and wellness. Rich in essential nutrients and natural ingredients.",
+        recipe: "Mix 1 teaspoon with warm milk or water. Stir well and consume daily. Best consumed in the morning with breakfast."
     },
     {
         id: 2,
@@ -21,7 +23,9 @@ export const products = [
         badgeColor: "#2d5f2e",
         rating: 4.9,
         reviews: "2k+ Reviews",
-        sizes: ["400g"]
+        sizes: ["400g"],
+        description: "A delicious and nutritious bread mix made with pure coconut. Perfect for homemade baking with a tropical twist.",
+        recipe: "Mix 250g of the bread mix with 150ml water and 2 tablespoons oil. Knead into a dough, let rise for 1 hour, then bake at 180°C for 25-30 minutes."
     },
     {
         id: 3,
@@ -33,7 +37,9 @@ export const products = [
         badgeColor: "#ff8c00",
         rating: 4.9,
         reviews: "248 Reviews",
-        sizes: ["110g"]
+        sizes: ["110g"],
+        description: "A wholesome and creamy spinach soup mix packed with iron, vitamins, and minerals. Ready in minutes!",
+        recipe: "Add 1 cup hot water to 2 tablespoons of the mix. Stir well and let it simmer for 2-3 minutes. Add a splash of cream for extra richness. Enjoy hot!"
     },
     {
         id: 4,
@@ -45,7 +51,9 @@ export const products = [
         badgeColor: "#7b3ff2",
         rating: 4.9,
         reviews: "163 Reviews",
-        sizes: ["110 g"]
+        sizes: ["110 g"],
+        description: "Aromatic and flavorful soup mix infused with fresh curry leaves. A traditional Indian favorite in instant form.",
+        recipe: "Boil 1.5 cups water, add 3 tablespoons of the mix. Cook for 3-4 minutes while stirring occasionally. Add a squeeze of lemon juice if desired."
     },
     {
         id: 5,
@@ -57,7 +65,9 @@ export const products = [
         badgeColor: "#7b3ff2",
         rating: 4.9,
         reviews: "163 Reviews",
-        sizes: ["110 g"]
+        sizes: ["110 g"],
+        description: "Rich chocolate combined with creamy almond butter. A delightful treat that's also nutritious!",
+        recipe: "Mix 2 tablespoons with 200ml warm milk. Stir well until smooth and creamy. Serve immediately for the best taste."
     },
     {
         id: 6,
@@ -69,8 +79,9 @@ export const products = [
         badgeColor: "#7b3ff2",
         rating: 4.9,
         reviews: "163 Reviews",
-        sizes: ["110 g"]
-
+        sizes: ["110 g"],
+        description: "Nutrient-rich soup with drumstick seeds and a blend of spices. Excellent source of calcium and protein.",
+        recipe: "Add 2 tablespoons to 1.5 cups boiling water. Simmer for 4-5 minutes. Add salt and pepper to taste. A healthy meal in minutes!"
     },
     {
         id: 7,
@@ -82,7 +93,9 @@ export const products = [
         badgeColor: "#7b3ff2",
         rating: 4.9,
         reviews: "163 Reviews",
-        sizes: ["200 g"]
+        sizes: ["200 g"],
+        description: "Premium chocolate smoothie powder with added protein and vitamins. Perfect for post-workout recovery.",
+        recipe: "Mix 3 tablespoons with 250ml milk and 1 banana. Blend until smooth. Add ice cubes for a cold smoothie. Enjoy immediately!"
     },
     {
         id: 8,
@@ -94,7 +107,9 @@ export const products = [
         badgeColor: "#7b3ff2",
         rating: 4.9,
         reviews: "163 Reviews",
-        sizes: ["200 g"]
+        sizes: ["200 g"],
+        description: "Tropical guava smoothie powder enriched with vitamin C and natural fruit goodness.",
+        recipe: "Mix 3 tablespoons with 250ml milk and 1 cup fresh guava or apple. Blend well. Add honey for sweetness if needed. Refreshing and nutritious!"
     },
     {
         id: 9,
@@ -106,7 +121,9 @@ export const products = [
         badgeColor: "#7b3ff2",
         rating: 4.9,
         reviews: "163 Reviews",
-        sizes: ["200 g"]
+        sizes: ["200 g"],
+        description: "Pure Amla (Indian Gooseberry) powder - nature's powerhouse of Vitamin C and antioxidants.",
+        recipe: "Mix 1 teaspoon with warm water or juice daily. Can also be added to smoothies, yogurt, or herbal teas for maximum health benefits."
     },
     
 ];

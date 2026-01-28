@@ -1,4 +1,15 @@
-# NutriAura Project
+# Nutr## 🚀 Features
+
+* 🛍️ Product browsing with categories and listings
+* 🏷️ **Category Filtering** - Dropdown menu to filter products by category
+* 🧭 **Breadcrumb Navigation** - Easy navigation showing category hierarchy and product details
+* 📊 Product count display when filtering by category
+* 📄 **Product Detail Pages** - Click on any product to view full details including description and usage instructions
+* 💬 **Lorem Ipsum Mockup Content** - Product detail pages ready for custom content
+* 🛒 Shopping cart functionality
+* 🧑‍💻 Admin panel for managing products & users
+* 📦 Scalable Django backend
+* 💡 Interactive UI using Alpine.js and Bootstrapct
 
 **NutriAura** is a modular, scalable e‑commerce web application focused on nutrition and wellness products. It is built using **Django**, **Alpine.js**, and **Bootstrap**, and is designed to be easy to extend and maintain.
 
@@ -10,7 +21,8 @@
 * 🏷️ **Category Filtering** - Dropdown menu to filter products by category
 * 🧭 **Breadcrumb Navigation** - Easy navigation showing category hierarchy (Home > Categories > Category Name)
 * 📊 Product count display when filtering by category
-* 🛒 Shopping cart functionality
+* � **Product Detail Pages** - Click on any product to view full details including description and usage instructions
+* �🛒 Shopping cart functionality
 * 🧑‍💻 Admin panel for managing products & users
 * 📦 Scalable Django backend
 * 💡 Interactive UI using Alpine.js and Bootstrap

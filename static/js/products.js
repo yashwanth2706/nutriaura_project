@@ -127,7 +127,7 @@ class ProductCarousel {
 
         container.innerHTML = this.filteredProducts.map(product => `
             <div class="col-12 col-sm-6 col-lg-3">
-                <div class="card h-100 shadow-sm border-0">
+                <div class="card h-100 shadow-sm border-0 product-card" style="cursor: pointer;" data-product-id="${product.id}">
                     <div class="position-relative">
                         <span class="badge position-absolute top-0 start-0 m-3 px-3 py-2"
                             style="background-color: ${product.badgeColor}; z-index: 5;">
@@ -154,7 +154,7 @@ class ProductCarousel {
                         <select class="form-select mb-3">
                             ${product.sizes.map(size => `<option selected>${size}</option>`).join('')}
                         </select>
-                        <button class="btn text-white fw-semibold py-2 mt-auto" style="background-color: #2d5f2e;">
+                        <button class="btn text-white fw-semibold py-2 mt-auto" style="background-color: #2d5f2e;" onclick="event.stopPropagation();">
                             ADD TO CART
                         </button>
                     </div>
@@ -164,6 +164,21 @@ class ProductCarousel {
 
         this.updateButtonStates();
         this.attachFavoriteButtons();
+        this.attachProductCardClickHandlers();
+    }
+
+    attachProductCardClickHandlers() {
+        document.querySelectorAll('.product-card').forEach(card => {
+            card.addEventListener('click', (e) => {
+                const productId = parseInt(card.getAttribute('data-product-id'));
+                const product = products.find(p => p.id === productId);
+                if (product) {
+                    // Dispatch custom event with product data
+                    const event = new CustomEvent('productSelected', { detail: product });
+                    document.dispatchEvent(event);
+                }
+            });
+        });
     }
 
     attachEventListeners() {

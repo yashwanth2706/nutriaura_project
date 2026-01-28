@@ -1,0 +1,139 @@
+/* Product Detail Page Styles */
+#product-detail-container {
+    background-color: #ffffff;
+}
+
+#product-detail-breadcrumb {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+    padding: 1rem 0;
+}
+
+/* Left Side: Product Card */
+.card {
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+#detail-product-image {
+    transition: transform 0.3s ease;
+}
+
+#detail-product-image:hover {
+    transform: scale(1.02);
+}
+
+#detail-product-badge {
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+}
+
+/* Right Side: Product Details */
+.product-details-content {
+    padding: 1rem 0;
+}
+
+#detail-product-name {
+    color: #2d5f2e;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+#detail-product-price {
+    color: #28a745;
+    font-size: 1.75rem;
+}
+
+.product-details-content h5 {
+    color: #2d5f2e;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+.product-details-content p {
+    color: #6c757d;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+#detail-size-select-card {
+    border-color: #2d5f2e;
+}
+
+#detail-size-select-card:focus {
+    border-color: #2d5f2e;
+    box-shadow: 0 0 0 0.2rem rgba(45, 95, 46, 0.25);
+}
+
+#detail-add-to-cart-card {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    background-color: #2d5f2e;
+}
+
+#detail-add-to-cart-card:hover {
+    background-color: #1f4620 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(45, 95, 46, 0.3);
+}
+
+#detail-back-button {
+    border-color: #2d5f2e;
+    color: #2d5f2e;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+#detail-back-button:hover {
+    background-color: #2d5f2e;
+    color: white;
+}
+
+.product-card {
+    transition: all 0.3s ease;
+    border-radius: 0.5rem;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Responsive Design */
+@media (max-width: 991px) {
+    #detail-product-name {
+        font-size: 1.5rem;
+    }
+
+    #detail-product-price {
+        font-size: 1.25rem;
+    }
+
+    .row.g-5 {
+        gap: 1.5rem !important;
+    }
+
+    .col-lg-5,
+    .col-lg-7 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    #detail-product-name {
+        font-size: 1.25rem;
+    }
+
+    .product-details-content h5 {
+        margin-top: 1rem;
+    }
+
+    .product-details-content p {
+        font-size: 0.95rem;
+    }
+}
