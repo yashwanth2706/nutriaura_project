@@ -39,6 +39,7 @@
     <link rel="stylesheet" href="{% static 'css/product_detail.css' %}">
     <link rel="stylesheet" href="{% static 'css/carousel.css' %}">
     <link rel="stylesheet" href="{% static 'css/cart.css' %}">
+    <link rel="stylesheet" href="{% static 'css/chatbot.css' %}">
     <link rel="stylesheet" href="{% static 'css/footer.css' %}">
 
     <!-- Custom JS -->
@@ -67,6 +68,9 @@
 
     <!-- Shopping Cart -->
     {% include "components/cart.html" %}
+
+    <!-- Chatbot Component -->
+    {% include "components/chatbot.html" %}
 
     <!-- Confirmation modal before redirecting to Twin Health Website -->
     {% include "components/redirect_to_twin_health_confirm_modal.html" %}

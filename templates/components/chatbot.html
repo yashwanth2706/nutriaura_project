@@ -1,0 +1,245 @@
+<!-- Chatbot Component with NutriNinja Mascot -->
+<div id="chatbot-container" x-data="chatbotManager()" x-cloak>
+  
+  <!-- Mascot Image (Independent) -->
+  <img src="/static/images/mascot/nutrininja.png" alt="NutriNinja" class="launcher-mascot">
+
+  <!-- Chatbot Launcher Button (Chat Icon Box) -->
+  <button class="chatbot-launcher" @click="toggleChat()" :class="{ 'active': isOpen }" title="Chat with NutriNinja">
+    <i class="bi bi-chat-dots-fill"></i>
+    
+    <!-- Notification Badge -->
+    <template x-if="unreadMessages > 0">
+      <span class="notification-badge" x-text="unreadMessages"></span>
+    </template>
+  </button>
+
+  <!-- Chat Modal -->
+  <template x-if="isOpen">
+    <div class="chat-modal-overlay" @click.self="toggleChat()">
+      <div class="chat-modal" @click.stop>
+        
+        <!-- Chat Header -->
+        <div class="chat-header">
+          <div class="d-flex align-items-center gap-2">
+            <img src="/static/images/mascot/nutrininja.png" alt="NutriNinja" class="chat-header-avatar">
+            <div>
+              <h5 class="mb-0">NutriNinja</h5>
+              <small class="text-success"><i class="bi bi-circle-fill" style="font-size: 0.5rem;"></i> Online</small>
+            </div>
+          </div>
+          <button @click="toggleChat()" class="btn-close" aria-label="Close chat"></button>
+        </div>
+
+        <!-- Chat Messages Area -->
+        <div class="chat-messages" @scroll="handleScroll($event)">
+          <template x-if="messages.length === 0">
+            <div class="chat-welcome">
+              <img src="/static/images/mascot/nutrininja.png" alt="NutriNinja" class="welcome-mascot">
+              <h6>Welcome to NutriNinja!</h6>
+              <p>Hi! I'm your nutrition assistant. How can I help you today?</p>
+            </div>
+          </template>
+
+          <!-- Messages -->
+          <template x-for="(msg, idx) in messages" :key="idx">
+            <div class="chat-message" :class="{ 'user-message': msg.sender === 'user', 'bot-message': msg.sender === 'bot' }">
+              <template x-if="msg.sender === 'bot'">
+                <img src="/static/images/mascot/nutrininja.png" alt="NutriNinja" class="message-avatar">
+              </template>
+              <div class="message-content">
+                <p x-text="msg.text"></p>
+              </div>
+            </div>
+          </template>
+
+          <!-- Typing Indicator -->
+          <template x-if="isTyping">
+            <div class="chat-message bot-message">
+              <img src="/static/images/mascot/nutrininja.png" alt="NutriNinja" class="message-avatar">
+              <div class="message-content">
+                <div class="typing-indicator">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+            </div>
+          </template>
+        </div>
+
+        <!-- Quick Actions / Suggestions -->
+        <template x-if="messages.length === 0">
+          <div class="quick-actions">
+            <p class="quick-actions-label">Quick Actions:</p>
+            <div class="actions-grid">
+              <button @click="sendQuickAction('What are healthy recipes?')" class="action-btn">
+                <i class="bi bi-book"></i>
+                <span>Recipes</span>
+              </button>
+              <button @click="sendQuickAction('Tell me about products')" class="action-btn">
+                <i class="bi bi-box"></i>
+                <span>Products</span>
+              </button>
+              <button @click="sendQuickAction('Nutrition tips')" class="action-btn">
+                <i class="bi bi-heart"></i>
+                <span>Tips</span>
+              </button>
+              <button @click="sendQuickAction('How to use this website?')" class="action-btn">
+                <i class="bi bi-question-circle"></i>
+                <span>Help</span>
+              </button>
+            </div>
+          </div>
+        </template>
+
+        <!-- Chat Input -->
+        <div class="chat-input-area">
+          <div class="input-group">
+            <input 
+              type="text" 
+              class="form-control chat-input" 
+              placeholder="Type your message..."
+              x-model="userInput"
+              @keydown.enter="sendMessage()"
+              :disabled="isTyping">
+            <button 
+              class="btn btn-success" 
+              @click="sendMessage()"
+              :disabled="!userInput.trim() || isTyping"
+              style="background-color: #2d5f2e; border-color: #2d5f2e;">
+              <i class="bi bi-send"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+</div>
+
+<script>
+  function chatbotManager() {
+    return {
+      isOpen: false,
+      messages: [],
+      userInput: '',
+      isTyping: false,
+      unreadMessages: 1,
+      autoScroll: true,
+
+      toggleChat() {
+        this.isOpen = !this.isOpen;
+        if (this.isOpen) {
+          this.unreadMessages = 0;
+          // Scroll to bottom when opening
+          setTimeout(() => {
+            const messagesArea = document.querySelector('.chat-messages');
+            if (messagesArea) {
+              messagesArea.scrollTop = messagesArea.scrollHeight;
+            }
+          }, 100);
+        }
+      },
+
+      sendMessage() {
+        if (!this.userInput.trim()) return;
+
+        // Add user message
+        this.messages.push({
+          sender: 'user',
+          text: this.userInput
+        });
+
+        const userMessage = this.userInput;
+        this.userInput = '';
+
+        // Scroll to bottom
+        setTimeout(() => {
+          const messagesArea = document.querySelector('.chat-messages');
+          if (messagesArea) {
+            messagesArea.scrollTop = messagesArea.scrollHeight;
+          }
+        }, 50);
+
+        // Simulate bot response
+        this.isTyping = true;
+        setTimeout(() => {
+          this.messages.push({
+            sender: 'bot',
+            text: this.getBotResponse(userMessage)
+          });
+          this.isTyping = false;
+
+          // Scroll to bottom
+          setTimeout(() => {
+            const messagesArea = document.querySelector('.chat-messages');
+            if (messagesArea) {
+              messagesArea.scrollTop = messagesArea.scrollHeight;
+            }
+          }, 50);
+        }, 1500);
+      },
+
+      sendQuickAction(action) {
+        this.userInput = action;
+        this.sendMessage();
+      },
+
+      getBotResponse(userMessage) {
+        const responses = {
+          'recipes': 'We have a collection of healthy recipes featuring our products! Visit our recipes section to find nutritious meals that are easy to prepare.',
+          'products': 'Our NutriAura collection includes organic soups, smoothie mixes, and healthy blends. Each product is carefully crafted for nutrition and taste.',
+          'tips': 'Here are some nutrition tips: Stay hydrated, eat seasonal foods, include protein in every meal, and choose whole grains. Our products are designed to support a healthy lifestyle!',
+          'help': 'You can browse products by category, add items to your cart, and checkout. Use our search feature to find specific products. Need more help? Contact our support team!',
+          'healthy': 'Great question! A healthy diet includes plenty of fruits, vegetables, whole grains, and proteins. Our NutriAura products are crafted with these principles in mind.',
+          'price': 'Our products are competitively priced and offer great value for organic, quality ingredients. Check our catalog for current pricing!',
+          'delivery': 'We offer fast and reliable delivery to most areas. Shipping costs vary based on location and order size.',
+          'organic': 'Yes! All NutriAura products are made from organic ingredients, ensuring quality and health benefits for your family.',
+        };
+
+        const lowerMessage = userMessage.toLowerCase();
+        
+        for (const [key, response] of Object.entries(responses)) {
+          if (lowerMessage.includes(key)) {
+            return response;
+          }
+        }
+
+        return 'That\'s a great question! For more detailed information, please visit our FAQ section or contact our customer support team. We\'re here to help!';
+      },
+
+      handleScroll(event) {
+        const element = event.target;
+        // Check if user has scrolled up
+        this.autoScroll = (element.scrollHeight - element.clientHeight - element.scrollTop) < 100;
+      },
+
+      init() {
+        // Send initial greeting after a delay when page loads
+        setTimeout(() => {
+          if (this.messages.length === 0) {
+            this.messages.push({
+              sender: 'bot',
+              text: 'Hello! 👋 I\'m NutriNinja, your nutrition assistant. Click to chat with me about healthy living!'
+            });
+          }
+        }, 500);
+      }
+    }
+  }
+
+  // Initialize chatbot when Alpine.js is ready
+  document.addEventListener('alpine:init', () => {
+    const container = document.getElementById('chatbot-container');
+    if (container && container.__x) {
+      container.__x.init();
+    }
+  });
+
+  setTimeout(() => {
+    const container = document.getElementById('chatbot-container');
+    if (container && container.__x) {
+      container.__x.init();
+    }
+  }, 100);
+</script>
