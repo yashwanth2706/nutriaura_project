@@ -8,6 +8,12 @@
       <div class="d-flex align-items-center gap-2">
         <img src="{% static 'images/logo/NutriAuraLogo.png' %}" alt="NutriAura Logo" class="navbar-logo">
         <span>NutriAura</span>
+<!--
+        <span id="nav-poweredby" class="powered-by" data-bs-toggle="modal" data-bs-target="#twinHealthModal">
+          <i class="bi bi-patch-check-fill"></i>
+          Powered by Twin Health
+        </span>
+-->
       </div>
     </a>
 
@@ -58,9 +64,11 @@
         </a>
 
         <!-- Wishlist -->
+        <!--
         <a href="#wishlist" id="nav-wishlist" class="icon-btn" title="Wishlist">
           <i class="bi bi-heart"></i>
         </a>
+        -->
 
         <!-- Cart -->
         <a id="nav-cart" class="icon-btn" href="javascript:void(0)" onclick="document.dispatchEvent(new CustomEvent('toggleCart'))" title="Shopping Cart">
